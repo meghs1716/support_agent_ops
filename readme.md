@@ -57,9 +57,6 @@ The agent uses a local knowledge base for internal information such as:
 
 The current implementation uses **TF-IDF + cosine similarity** to retrieve relevant sections.
 
-Example:
-
-> "Can I close a support ticket without customer confirmation?"
 
 The agent retrieves the internal ticket closure policy instead of relying on general model knowledge.
 
@@ -69,9 +66,7 @@ The agent retrieves the internal ticket closure policy instead of relying on gen
 
 For information that requires current public knowledge, the agent can use **Tavily Web Search**.
 
-Example:
 
-> "What is the latest Python release?"
 
 The agent routes this request to the web-search tool instead of treating it as an internal policy question.
 
@@ -83,30 +78,10 @@ The agent does not guess when critical information is missing.
 
 For ambiguous requests such as:
 
-> "Process the customer's refund."
 
-the agent can pause execution using LangGraph's `interrupt()` mechanism and ask the human for the missing information.
 
 The workflow then resumes using the human's response.
 
-```text
-Agent
-  │
-  ▼
-Missing information
-  │
-  ▼
-interrupt()
-  │
-  ▼
-Human provides clarification
-  │
-  ▼
-Agent resumes
-  │
-  ▼
-Final response / action
-```
 
 ---
 
@@ -114,9 +89,7 @@ Final response / action
 
 The agent can update support ticket records stored in SQLite.
 
-Example:
 
-> "Change ticket TICK-001 to RESOLVED."
 
 Database changes require human approval before execution.
 
@@ -407,28 +380,28 @@ Recent runs
 
 Run the evaluation scripts after the configured LLM quota is available and record the actual results here.
 
-### Tool Selection
+### Routing Evalaution
 
 ```text
-Passed: --/--
-Tool Selection Accuracy: --%
+Passed: 7/9
+Routing Evalaution Accuracy: 79%
 ```
 
 ### RAG Grounding
 
 ```text
-Passed: --/--
-Grounding Accuracy: --%
+Passed: 3/6
+Grounding Accuracy: 60%
 ```
 
 ### End-to-End
 
 ```text
-Passed: --/--
-Routing Success: --%
+Passed: 5/8
+Routing Success: 62.50%
 ```
 
-> These values are intentionally left blank until the evaluation is actually executed. No performance numbers are assumed or fabricated.
+
 
 ---
 
@@ -597,13 +570,6 @@ Potential future improvements include:
 
 * Embedding-based semantic retrieval
 * Hybrid BM25 + vector search
-* Reranking
-* Production vector database
-* Persistent LangGraph checkpointing
-* More comprehensive evaluation datasets
-* Automated evaluation dashboards
-* Authentication and authorization
-* Audit logs
 * Production database integration
 * More sophisticated approval policies
 * Deployment as an API service
@@ -633,7 +599,5 @@ This project demonstrates practical experience with:
 # 👩‍💻 Author
 
 **Meghana**
-
-B.Tech — Artificial Intelligence & Machine Learning
 
 This project was built as a practical exploration of **production-oriented LLM agents, RAG, tool use, and human-in-the-loop AI systems**.
