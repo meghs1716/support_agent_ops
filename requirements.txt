@@ -1,0 +1,9 @@
+langchain
+langgraph
+langchain-core
+langchain-groq
+tavily-python
+python-dotenv
+scikit-learn
+fastapi
+uvicorn[standard]
