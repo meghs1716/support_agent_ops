@@ -47,10 +47,11 @@ def root():
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Support / Ops AI Assistant</title>
         <meta http-equiv="refresh" content="0; url=/docs">
     </head>
-    <body></body>
+    <body>
+        <p>Opening Support / Ops AI Assistant...</p>
+    </body>
     </html>
     """
 
